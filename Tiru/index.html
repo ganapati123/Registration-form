@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+</head>
+
+<div class="container">
+	<div class="header">
+		<h2>Create Account</h2>
+	</div>
+	<form id="form" class="form" onsubmit="signup()">
+        <div class="form-control">
+			<label for="username">First Name</label>
+			<input type="text" placeholder="First" id="username" class="cls1"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="lastname">Last Name</label>
+			<input type="text" placeholder="Last" id="lastname" class="cls2"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Email</label>
+			<input type="email" placeholder="abcd@gmail.com" id="email" class="cls3"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Password</label>
+			<input type="password" placeholder="Password" id="password" class="cls4"/>
+             <span>
+                <i class="bi bi-eye"></i>
+             </span>
+            <p id="message">Password is <span id="strenght"></span> </p>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Confirm Password</label>
+			<input type="password" placeholder="Confirm Password" id="confirmpassword" class="cls5"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+        <div class="form-control">
+            <form id="login" onsubmit="process(event)">
+              <p>Phone Number:</p>
+              <input id="phone" type="number" name="phone" placeholder="Phone Number" class="cls6"/>
+		</div>
+        <div>
+            <label >Date of birth : <span>*</span></label> <br>
+            <select name="Month" id="dob" class="cls13">
+                <option value="month">Month</option>            
+                <option value="jan">Jan</option>            
+                <option value="feb">Feb</option>            
+                <option value="mar">Mar</option>            
+                <option value="apr">Apr</option>            
+                <option value="may">May</option>            
+                <option value="jun">Jun</option>            
+                <option value="jul">Jul</option>            
+                <option value="aug">Aug</option>            
+                <option value="sep">Sep</option>            
+                <option value="oct">Oct</option>            
+                <option value="nov">Nov</option>            
+                <option value="dec">Dec</option>            
+            </select>
+            <select name="Day">
+                <option value="day">Day</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select name="Year" >
+                <option value="year">Year</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+            </select>
+        </div>
+        <div>
+            <span class="legend">Gender </span>
+<fieldset id="setD" class="cls7">
+	<input id="setD_male" type="radio" name="setD_gender" >
+		<label for="setD_male">Male</label>
+	<input id="setD_female" type="radio" name="setD_gender">
+		<label for="setD_female">Female</label>
+</fieldset>
+        </div>
+<br>
+<div class="form-control">
+    <label for="state" class="cls8" >State</label>
+    <!-- <input type="text" placeholder="Select State" id="password2"/> -->
+    <i class="fas fa-check-circle"></i>
+    <i class="fas fa-exclamation-circle"></i>
+    <br>
+    <select name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
+        <option value="">----------------------Select State--------------------</option>
+        <option value="andrapradesh">Andra Pradesh</option>
+        <option value="telangana">Telangana</option>
+    </select>
+     <br> <br>
+    <div class="form-control">
+        <label for="city">City</label> <br>
+        <select name="slct2" id="slct2">
+        <option value="state">---------------------------City--------------------------</option>
+        </select>
+    </div>
+    </div>
+<div class="form-control">
+    <label for="address" class="cls9">Address</label><br>
+    <textarea type="text" maxlength="400" class="" id="uname" value="" onkeyup="myfun()"></textarea> <br>
+    <div class="d-block">
+        <span id="uname_span">0</span>/400
+     </div>
+    <meter id="uname_meter"  max="400" min="0" value="" ></meter>
+        </div>
+        <div>
+            <span class="legend">Languages </span>
+<fieldset id="setD" class="cls10">
+	<input id="telugu" type="checkbox" name="telugu">
+		<label for="telugu">Telugu</label>
+	<input id="hindi" type="checkbox" name="hindi">
+		<label for="hindi">Hindi</label>
+        <input id="english" type="checkbox" name="english">
+		<label for="english">English</label>
+</fieldset>
+        </div>
+        <div class="form-control">
+            <label for="" >Upload File</label>
+            <input type="file" accept="image/*" onchange="loadFile(event)" class="cls11">
+             <img id="output" width="200px"/>
+        </div>
+        <div>
+            <fieldset id="setD">
+                <input id="telugu" type="checkbox" name="telugu" class="cls12">
+                    <label for="agree">I agree to signup</label>
+        </div>
+        
+              <button>Submit</button>
+	</form>
+</div>
+
+
+<!-- SOCIAL PANEL HTML -->
+<!-- <div class="social-panel-container">
+	<div class="social-panel">
+		<p>Created with <i class="fa fa-heart"></i> by
+			<a target="_blank" href="https://florin-pop.com">Florin Pop</a></p>
+		<button class="close-btn"><i class="fas fa-times"></i></button>
+		<h4>Get in touch on</h4>
+		<ul>
+			<li>
+				<a href="https://www.patreon.com/florinpop17" target="_blank">
+					<i class="fab fa-discord"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/florinpop1705" target="_blank">
+					<i class="fab fa-twitter"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://linkedin.com/in/florinpop17" target="_blank">
+					<i class="fab fa-linkedin"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://facebook.com/florinpop17" target="_blank">
+					<i class="fab fa-facebook"></i>
+				</a>
+			</li>
+			<li>
+				<a href="https://instagram.com/florinpop17" target="_blank">
+					<i class="fab fa-instagram"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<button class="floating-btn">
+	Get in Touch
+</button>
+
+<div class="floating-text">
+	Part of <a href="https://florin-pop.com/blog/2019/09/100-days-100-projects" target="_blank">#100Days100Projects</a>
+</div> -->
+<script src="index.js"></script>
+
+</html>
